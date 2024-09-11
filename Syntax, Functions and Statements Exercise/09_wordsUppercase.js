@@ -20,4 +20,4 @@ function wordsUpperCase(string) {
     }
     return upperCaseWordArr.join(", ");
 }
-console.log(wordsUpperCase('da, a'));
+console.log(wordsUpperCase('Hi, how are you?'));
