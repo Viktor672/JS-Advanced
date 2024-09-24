@@ -8,6 +8,8 @@ function solve() {
     selectMenuToConvertToHexadecimal.textContent = "Hexadecimal";
     selectTo.appendChild(selectMenuToConvertToBinary);
     selectTo.appendChild(selectMenuToConvertToHexadecimal);
+
+    
     document.querySelector("#container button").addEventListener("click", f => {
         let resultEl = document.querySelector("#result");
         let number = Number(document.querySelector("#input").value);
