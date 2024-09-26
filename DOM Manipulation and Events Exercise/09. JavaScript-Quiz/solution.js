@@ -1,15 +1,12 @@
 function solve() {
-    let correct = 0
-    let inCorrect = 0
-
+    let questionEls = document.querySelectorAll('h2');
+    let sectionArr = Array.from(document.querySelectorAll('section'));
     let mapperObj = {
         'Question #1: Which event occurs when the user clicks on an HTML element?': 'onclick',
         'Question #2: Which function converting JSON to string?': 'JSON.stringify()',
         'Question #3: What is DOM?': 'A programming API for HTML and XML documents'
     }
-
-    let questionEls = document.querySelectorAll('h2');
-    let sectionArr = Array.from(document.querySelectorAll('section'));
+    let correct = 0;
 
     for (let i = 0; i < questionEls.length; i++) {
         let curQuestion = questionEls[i].textContent
