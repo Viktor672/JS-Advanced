@@ -2,7 +2,7 @@ function solve() {
     let movieEls = document.querySelector('#movies ul');
     let archiveEl = document.querySelector('#archive ul');
 
-    archiveEl.nextElementSibling.addEventListener('click', () => {
+    archiveEl.nextElementSibling.addEventListener('click', (event) => {
         archiveEl.innerHTML = '';
     });
 
