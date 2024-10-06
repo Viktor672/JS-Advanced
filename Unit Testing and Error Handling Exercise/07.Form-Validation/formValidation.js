@@ -59,6 +59,12 @@ function validate() {
                 companyNumberEl.style.borderColor = 'red';
             }
         }
-        validTextEl.style.display = isValidated ? 'block' : 'none';
+
+        if (isValidated) {
+            validTextEl.style.display = 'block';
+        }
+        else {
+            validTextEl.style.display = 'none';
+        }
     });
 }
