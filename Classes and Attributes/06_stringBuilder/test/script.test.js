@@ -266,7 +266,7 @@ describe('test if the task works correctly', () => {
     describe('test multiply methods', () => {
         it('should give correct output', () => {
             input = new StringBuilder('rank tr');
-            input.append('a') //rank trA
+            input.append('a'); //rank trA
             input.prepend('F');//Frank tra
             input.insertAt('Sinarte', 6);//frank sinartetra
             input.remove(10, 3);//Frank Sinatra
@@ -275,7 +275,7 @@ describe('test if the task works correctly', () => {
 
         it('should give correct output', () => {
             input = new StringBuilder('das');
-            input.append('fa') //dasfa
+            input.append('fa'); //dasfa
             input.prepend('ad');//addasfa
             input.insertAt('f', 2);//adfdasfa
             input.remove(3, 2);//adfsfa
