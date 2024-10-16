@@ -70,7 +70,9 @@ function solve() {
             contactNumberEl.value = contactNumberPEl.textContent;
             classTypeEl.value = classTypePEl.textContent;
             classTimeEl.value = classTimePEl.textContent;
+            
             nextButtonEl.disabled = false;
+            
             nameEl.value = editedName;
             emailEl.value = editedEmail;
             contactNumberEl.value = editedContactNumber;
