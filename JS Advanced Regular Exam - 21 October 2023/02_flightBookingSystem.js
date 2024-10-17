@@ -37,6 +37,9 @@ class FlightBookingSystem {
         }
 
         let indexOf = this.bookings.findIndex(curEl => curEl == curObj);
+        if (indexOf == -1) {
+            return;
+        }
         this.bookings.splice(indexOf, 1);
         this.bookingsCount -= 1;
         return `Booking for passenger ${passengerName} on flight ${flightNumber} is cancelled.`;
@@ -48,44 +51,43 @@ class FlightBookingSystem {
         }
 
         let arr = [];
-
         if (criteria == 'all') {
             arr.push(`All bookings(${this.bookingsCount}):`);
             for (const curEl of this.bookings) {
                 arr.push(`${curEl.passengerName} booked for flight ${curEl.flightNumber}.`);
             }
             return arr.join('\n').trim();
-        } else if (criteria == 'cheap') {
-            let cheapArr = this.bookings.filter(curEl => {
-                let flight = this.flights.find(fNumber => fNumber.flightNumber === curEl.flightNumber);
-                return flight && flight.price <= 100;
-            });
-
+        }
+        else if (criteria == 'cheap') {
+            let cheapArr = this.flights.filter(curEl => curEl.price <= 100);
             if (cheapArr.length === 0) {
                 return 'No cheap bookings found.';
             }
-
             arr.push('Cheap bookings:');
-            for (const booking of cheapArr) {
-                arr.push(`${booking.passengerName} booked for flight ${booking.flightNumber}.`);
+            for (const curEl of cheapArr) {
+                let obj = this.bookings.find(el => el.flightNumber == curEl.flightNumber);
+                if (obj) {  // Only push if a booking exists
+                    arr.push(`${obj.passengerName} booked for flight ${curEl.flightNumber}.`);
+                }
             }
             return arr.join('\n').trim();
-        } else if (criteria == 'expensive') {
-            let expensiveArr = this.bookings.filter(curEl => {
-                let flight = this.flights.find(fNumber => fNumber.flightNumber === curEl.flightNumber);
-                return flight && flight.price > 100;
-            });
+        }
 
+        else if (criteria == 'expensive') {
+            let expensiveArr = this.flights.filter(curEl => curEl.price > 100);
             if (expensiveArr.length === 0) {
                 return 'No expensive bookings found.';
             }
-
             arr.push('Expensive bookings:');
-            for (const booking of expensiveArr) {
-                arr.push(`${booking.passengerName} booked for flight ${booking.flightNumber}.`);
+            for (const curEl of expensiveArr) {
+                let obj = this.bookings.find(el => el.flightNumber == curEl.flightNumber);
+                if (obj) {
+                    arr.push(`${obj.passengerName} booked for flight ${curEl.flightNumber}.`);
+                }
             }
             return arr.join('\n').trim();
-        } else {
+        }
+        else {
             throw new Error("Invalid criteria.");
         }
     }
